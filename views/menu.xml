@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Root Menu -->
+    <menuitem 
+        id="menu_hospital_root"
+        name="Hospital System"
+        sequence="1"
+    />
+
+    <!-- Master Data Menu -->
+    <menuitem 
+        id="menu_hospital_master"
+        name="Master Data"
+        parent="menu_hospital_root"
+        sequence="4"
+    />
+        <menuitem 
+            id="menu_hospital_doctor"
+            name="Doctors"
+            parent="menu_hospital_master"
+            action="action_doctor"
+            sequence="1"
+        />
+        <menuitem 
+            id="menu_hospital_patient"
+            name="Patients"
+            parent="menu_hospital_master"
+            action="action_patient"
+            sequence="2"
+        />
+        <menuitem 
+            id="menu_hospital_department"
+            name="Department"
+            parent="menu_hospital_master"
+            action="action_department"
+            sequence="3"
+        />
+        <menuitem 
+            id="menu_hospital_service"
+            name="Hospital Services"
+            parent="menu_hospital_master"
+            action="action_hospital_service"
+            sequence="4"
+        />
+
+    <!-- Receiptionist Menu -->
+    <menuitem 
+        id="menu_hospital_receiptionist"
+        name="Receiptionist"
+        parent="menu_hospital_root"
+        sequence="1"
+    />
+        <menuitem 
+            id="menu_hospital_patient_registration"
+            name="Patient Registration"
+            parent="menu_hospital_receiptionist"
+            action="action_patient_registration"
+            sequence="2"
+        />
+        <menuitem 
+            id="menu_hospital_patient_appointment"
+            name="Appointment"
+            parent="menu_hospital_receiptionist"
+            action="action_hospital_appointment"
+            sequence="3"
+        />
+
+    <!-- Assessment Menu -->
+    <menuitem 
+        id="menu_hospital_assessment"
+        name="Assessment"
+        parent="menu_hospital_root"
+        sequence="2"
+    />
+        <menuitem 
+            id="menu_hospital_patient_assesment"
+            name="Patient Assessment"
+            parent="menu_hospital_assessment"
+            action="action_hospital_assessment"
+            sequence="2"
+        />
+
+    <!-- invoce -->
+    <menuitem 
+        id="menu_hospital_invoice"
+        name="Invoice"
+        parent="menu_hospital_root"
+        sequence="3"
+    />
+        <menuitem 
+            id="menu_hospital_patien_invoice"
+            name="Invoice"
+            parent="menu_hospital_invoice"
+            action="action_hospital_invoice"
+            sequence="1"
+        />
+</odoo>

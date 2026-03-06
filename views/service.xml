@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================= TREE VIEW ================= -->
+
+    <record id="view_hospital_service_tree" model="ir.ui.view">
+        <field name="name">hospital.service.tree</field>
+        <field name="model">hospital_system.service</field>
+        <field name="arch" type="xml">
+
+            <tree string="Hospital Services">
+                <field name="service_id"/>
+                <field name="service_name"/>
+                <field name="service_type"/>
+                <field name="price"/>
+                <field name="active"/>
+            </tree>
+
+        </field>
+    </record>
+
+
+    <!-- ================= FORM VIEW ================= -->
+
+    <record id="view_hospital_service_form" model="ir.ui.view">
+        <field name="name">hospital.service.form</field>
+        <field name="model">hospital_system.service</field>
+        <field name="arch" type="xml">
+
+            <form string="Hospital Service">
+
+                <sheet>
+
+                    <group>
+
+                        <group>
+                            <field name="service_id" readonly="1"/>
+                            <field name="service_name"/>
+                            <field name="service_type"/>
+                        </group>
+
+                        <group>
+                            <field name="price"/>
+                            <field name="active"/>
+                        </group>
+
+                    </group>
+
+                    <group string="Description">
+                        <field name="description"/>
+                    </group>
+
+                </sheet>
+
+                <!-- OE CHATTER -->
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+
+            </form>
+
+        </field>
+    </record>
+
+
+    <!-- ================= SEARCH VIEW ================= -->
+
+    <record id="view_hospital_service_search" model="ir.ui.view">
+        <field name="name">hospital.service.search</field>
+        <field name="model">hospital_system.service</field>
+        <field name="arch" type="xml">
+
+            <search>
+
+                <field name="service_name"/>
+                <field name="service_type"/>
+
+                <filter name="filter_consultation"
+                        string="Consultation"
+                        domain="[('service_type','=','consultation')]"/>
+
+                <filter name="filter_procedure"
+                        string="Procedure"
+                        domain="[('service_type','=','procedure')]"/>
+
+                <filter name="filter_medicine"
+                        string="Medicine"
+                        domain="[('service_type','=','medicine')]"/>
+
+                <filter name="filter_lab"
+                        string="Laboratory"
+                        domain="[('service_type','=','lab')]"/>
+
+                <group expand="0" string="Group By">
+
+                    <filter name="group_type"
+                            string="Service Type"
+                            context="{'group_by':'service_type'}"/>
+
+                </group>
+
+            </search>
+
+        </field>
+    </record>
+
+
+    <!-- ================= ACTION ================= -->
+
+    <record id="action_hospital_service" model="ir.actions.act_window">
+        <field name="name">Hospital Services</field>
+        <field name="res_model">hospital_system.service</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_hospital_service_search"/>
+    </record>
+
+</odoo>

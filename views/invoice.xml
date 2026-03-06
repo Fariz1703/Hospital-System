@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================= TREE VIEW ================= -->
+
+    <record id="view_hospital_invoice_tree" model="ir.ui.view">
+        <field name="name">hospital.invoice.tree</field>
+        <field name="model">hospital_system.invoice</field>
+        <field name="arch" type="xml">
+
+            <tree string="Invoices">
+                <field name="invoice_id"/>
+                <field name="patient_id"/>
+                <field name="assessment_id"/>
+                <field name="invoice_date"/>
+                <field name="total_amount"/>
+                <field name="state"/>
+            </tree>
+
+        </field>
+    </record>
+
+
+    <!-- ================= FORM VIEW ================= -->
+
+    <record id="view_hospital_invoice_form" model="ir.ui.view">
+        <field name="name">hospital.invoice.form</field>
+        <field name="model">hospital_system.invoice</field>
+        <field name="arch" type="xml">
+
+            <form string="Hospital Invoice">
+
+                <header>
+
+                    <button name="action_confirm"
+                            type="object"
+                            string="open"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+
+                    <button name="action_paid"
+                            type="object"
+                            string="Mark as Paid"
+                            class="btn-success"
+                            invisible="state != 'open'"/>
+
+                    <button name="action_cancel"
+                            type="object"
+                            string="Cancel"
+                            class="btn-danger"
+                            invisible="state in ('paid','cancel')"/>
+
+                    <field name="state"
+                           widget="statusbar"
+                           statusbar_visible="draft,open,paid"/>
+
+                </header>
+
+                <sheet>
+
+                    <!-- ================= BASIC INFO ================= -->
+
+                    <group>
+                        <group>
+                            <field name="invoice_id" readonly="1"/>
+                            <field name="patient_id"
+                            readonly="1"/>
+                            <field name="invoice_date" readonly="1"/>
+                        </group>
+
+                        <group>
+        
+                            <field name="assessment_id" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <!-- ================= INVOICE LINES ================= -->
+
+<notebook>
+
+    <page string="Services">
+
+        <field name="invoice_line_ids" readonly="1">
+
+            <tree create="false" edit="false" delete="false">
+                <field name="service_id"/>
+                <field name="quantity"/>
+                <field name="price"/>
+                <field name="subtotal"/>
+            </tree>
+
+        </field>
+
+    </page>
+
+</notebook>
+
+                    <!-- ================= TOTAL ================= -->
+
+                    <group>
+                        <group/>
+                        <group>
+                            <field name="total_amount" readonly="1"/>
+                        </group>
+                    </group>
+
+                </sheet>
+
+                <!-- ================= CHATTER ================= -->
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+
+            </form>
+
+        </field>
+    </record>
+
+
+    <!-- ================= SEARCH VIEW ================= -->
+
+    <record id="view_hospital_invoice_search" model="ir.ui.view">
+        <field name="name">hospital.invoice.search</field>
+        <field name="model">hospital_system.invoice</field>
+        <field name="arch" type="xml">
+
+            <search>
+
+                <field name="invoice_id"/>
+                <field name="patient_id"/>
+                <field name="assessment_id"/>
+
+                <filter name="filter_draft"
+                        string="Draft"
+                        domain="[('state','=','draft')]"/>
+
+                <filter name="filter_confirmed"
+                        string="Confirmed"
+                        domain="[('state','=','confirmed')]"/>
+
+                <filter name="filter_paid"
+                        string="Paid"
+                        domain="[('state','=','paid')]"/>
+
+                <group expand="0" string="Group By">
+
+                    <filter name="group_patient"
+                            string="Patient"
+                            context="{'group_by':'patient_id'}"/>
+
+                    <filter name="group_state"
+                            string="Status"
+                            context="{'group_by':'state'}"/>
+
+                </group>
+
+            </search>
+
+        </field>
+    </record>
+
+
+    <!-- ================= ACTION ================= -->
+
+    <record id="action_hospital_invoice" model="ir.actions.act_window">
+        <field name="name">Invoices</field>
+        <field name="res_model">hospital_system.invoice</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_hospital_invoice_search"/>
+    </record>
+
+</odoo>

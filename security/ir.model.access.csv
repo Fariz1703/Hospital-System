@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hospital_doctor,hospital_system.doctor,model_hospital_system_doctor,base.group_user,1,1,1,1
+access_hospital_patient,hospital_system.patient,model_hospital_system_patient,base.group_user,1,1,1,1
+access_hospital_department,hospital_system.department,model_hospital_system_department,base.group_user,1,1,1,1
+access_hospital_appointment,hospital_system.appointment,model_hospital_system_appointment,base.group_user,1,1,1,1
+access_hospital_assessment,hospital_system.assessment,model_hospital_system_assessment,base.group_user,1,1,1,1
+access_hospital_service,hospital_system.service,model_hospital_system_service,base.group_user,1,1,1,1
+access_hospital_invoice,hospital_system.invoice,model_hospital_system_invoice,base.group_user,1,1,1,1
+access_hospital_invoice_line,hospital_system.invoice.line,model_hospital_system_invoice_line,base.group_user,1,1,1,1
+access_hospital_assessment_service_line,hospital_system.assessment.service.line,model_hospital_system_assessment_service_line,base.group_user,1,1,1,1
