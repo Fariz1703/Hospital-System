@@ -1,0 +1,59 @@
+# Python
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# Odoo
+
+*.log
+*.pid
+*.seed
+*.out
+
+# Odoo filestore
+
+.filestore/
+data_dir/
+
+# Virtual Environment
+
+venv/
+.env/
+.envrc
+.env.*
+
+# IDE
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+
+.DS_Store
+Thumbs.db
+
+# Node (jika ada assets)
+
+node_modules/
+
+# Temporary files
+
+*.tmp
+*.bak
+*.backup
+
+# Coverage / test
+
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Build
+
+dist/
+build/
+*.egg-info/
+
