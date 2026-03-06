@@ -67,7 +67,7 @@ Apps → Update Apps List
 6. Search for:
 
 ```
-Hospital Management System
+Hospital-System
 ```
 
 7. Click **Install**.
