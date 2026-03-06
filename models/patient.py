@@ -13,7 +13,7 @@ class Patient(models.Model):
     _order = "id desc"
 
     patient_name = fields.Char(string='Patient Name', required=True, tracking=True)
-    patient_id = fields.Char(string='Patient ID', readonly=True, copy=False, default='New', tracking=True)
+    patient_id = fields.Char(string='Patient Reference', readonly=True, copy=False, default='New', tracking=True)
     identity_number = fields.Char(
         string='Identity Number',
         tracking=True

@@ -41,7 +41,8 @@ class DoctorAssessment(models.Model):
         string="Appointment",
         required=True,
         tracking=True,
-        ondelete="cascade"
+        ondelete="cascade",
+        readonly='1'
     )
 
     patient_id = fields.Many2one(
@@ -73,9 +74,6 @@ class DoctorAssessment(models.Model):
         'assessment_id',
         string="Services"
     )
-    # -----------------------
-    # VITAL SIGNS
-    # -----------------------
 
     temperature = fields.Float(
         string="Temperature (°C)",
@@ -107,9 +105,6 @@ class DoctorAssessment(models.Model):
         tracking=True
     )
 
-    # -----------------------
-    # MEDICAL NOTES
-    # -----------------------
 
     chief_complaint = fields.Text(
         string="Chief Complaint",

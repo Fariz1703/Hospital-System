@@ -11,7 +11,7 @@ class Department(models.Model):
 
 
     department_id = fields.Char(
-        string="Reference",
+        string="Department Reference",
         readonly=True,
         copy=False,
         default="New"

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- Hospital Services Demo Data -->
+        <record id="service_consultation_cardiology" model="hospital_system.service">
+            <field name="service_name">Cardiology Consultation</field>
+            <field name="service_type">consultation</field>
+            <field name="price">250000</field>
+            <field name="description">Heart and cardiovascular consultation with cardiologist specialist</field>
+        </record>
+
+        <record id="service_consultation_pediatrics" model="hospital_system.service">
+            <field name="service_name">Pediatrics Consultation</field>
+            <field name="service_type">consultation</field>
+            <field name="price">200000</field>
+            <field name="description">Children healthcare consultation with pediatrician specialist</field>
+        </record>
+
+        <record id="service_consultation_neurology" model="hospital_system.service">
+            <field name="service_name">Neurology Consultation</field>
+            <field name="service_type">consultation</field>
+            <field name="price">300000</field>
+            <field name="description">Brain and nervous system consultation with neurologist specialist</field>
+        </record>
+
+        <record id="service_surgery_general" model="hospital_system.service">
+            <field name="service_name">General Surgery</field>
+            <field name="service_type">procedure</field>
+            <field name="price">5000000</field>
+            <field name="description">General surgical procedures performed by experienced surgeons</field>
+        </record>
+
+        <record id="service_orthopedic_surgery" model="hospital_system.service">
+            <field name="service_name">Orthopedic Surgery</field>
+            <field name="service_type">procedure</field>
+            <field name="price">6000000</field>
+            <field name="description">Bone and joint surgery performed by orthopedic surgeons</field>
+        </record>
+
+        <record id="service_blood_test" model="hospital_system.service">
+            <field name="service_name">Complete Blood Count Test</field>
+            <field name="service_type">lab</field>
+            <field name="price">150000</field>
+            <field name="description">Complete blood count laboratory test for general health screening</field>
+        </record>
+
+        <record id="service_ecg" model="hospital_system.service">
+            <field name="service_name">Electrocardiogram (ECG)</field>
+            <field name="service_type">procedure</field>
+            <field name="price">350000</field>
+            <field name="description">Heart electrical activity recording and analysis</field>
+        </record>
+
+        <record id="service_ultrasound" model="hospital_system.service">
+            <field name="service_name">Ultrasound Examination</field>
+            <field name="service_type">procedure</field>
+            <field name="price">400000</field>
+            <field name="description">Ultrasound imaging for various organ examinations</field>
+        </record>
+
+        <record id="service_xray" model="hospital_system.service">
+            <field name="service_name">X-Ray Examination</field>
+            <field name="service_type">procedure</field>
+            <field name="price">250000</field>
+            <field name="description">X-Ray imaging for bone and chest examination</field>
+        </record>
+
+        <record id="service_medicine_antibiotics" model="hospital_system.service">
+            <field name="service_name">Antibiotics Prescription</field>
+            <field name="service_type">medicine</field>
+            <field name="price">100000</field>
+            <field name="description">Antibiotic medications for infection treatment</field>
+        </record>
+
+        <record id="service_rehabilitation" model="hospital_system.service">
+            <field name="service_name">Physiotherapy Session</field>
+            <field name="service_type">procedure</field>
+            <field name="price">250000</field>
+            <field name="description">Physical rehabilitation and physiotherapy sessions</field>
+        </record>
+
+        <record id="service_consultation_orthopedics" model="hospital_system.service">
+            <field name="service_name">Orthopedics Consultation</field>
+            <field name="service_type">consultation</field>
+            <field name="price">280000</field>
+            <field name="description">Bone and joint health consultation with orthopedic specialist</field>
+        </record>
+
+    </data>
+</odoo>

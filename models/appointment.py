@@ -13,7 +13,7 @@ class Appointment(models.Model):
     _order = "id desc"
 
     appointment_id = fields.Char(
-        string="Reference",
+        string="Appointment Reference",
         readonly=True,
         copy=False,
         default="New",
@@ -86,10 +86,6 @@ class Appointment(models.Model):
 
     active = fields.Boolean(default=True)
 
-    # ----------------------------------------------------
-    # CREATE
-    # ----------------------------------------------------
-
     @api.model
     def create(self, vals):
         if vals.get('appointment_id', 'New') == 'New':
@@ -103,10 +99,6 @@ class Appointment(models.Model):
         self.doctor_id = False
         self.doctor_appendix = False
 
-    # @api.onchange('doctor_id')
-    # def _onchange_doctor(self):
-    #     if self.doctor_id:
-    #         self.doctor_appendix = self.doctor_id.appendix
 
     def action_confirm(self):
         for rec in self:
@@ -144,8 +136,6 @@ class Appointment(models.Model):
 
             rec.checkin_time = now
             rec.state = 'checkin'
-
-            # CREATE ASSESSMENT
             self.env['hospital_system.assessment'].create({
                 'doctor_id': rec.doctor_id.id,
                 'patient_id': rec.patient_id.id,

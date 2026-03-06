@@ -1,0 +1,68 @@
+<odoo>
+    <!-- Appointment Sequence -->
+    <record id="appointment_sequence" model="ir.sequence">
+        <field name="name">Appointment Sequence</field>
+        <field name="code">hospital_system.appointment</field>
+        <field name="prefix">APT/%(year)s/</field>
+        <field name="padding">4</field>
+        <field name="number_increment">1</field>
+        <field name="implementation">standard</field>
+    </record>
+    <!-- Assessment Sequence -->
+    <record id="assessment_sequence" model="ir.sequence">
+        <field name="name">Assessment Sequence</field>
+        <field name="code">hospital_system.assessment</field>
+        <field name="prefix">AST/%(year)s/</field>
+        <field name="padding">4</field>
+        <field name="number_increment">1</field>
+        <field name="implementation">standard</field>
+    </record>
+    <!-- Department Sequence -->
+    <record id="department_sequence" model="ir.sequence">
+        <field name="name">Department Sequence</field>
+        <field name="code">hospital_system.department</field>
+        <field name="prefix">DEP</field>
+        <field name="padding">4</field>
+        <field name="number_increment">1</field>
+        <field name="implementation">standard</field>
+    </record>
+    <!-- Doctor Sequence -->
+    <record id="doctor_sequence" model="ir.sequence">
+        <field name="name">Doctor Sequence</field>
+        <field name="code">hospital_system.doctor</field>
+        <field name="prefix">DOC</field>
+        <field name="padding">4</field>
+        <field name="number_increment">1</field>
+        <field name="implementation">standard</field>
+    </record>
+    <!-- Invoice Sequence -->
+    <record id="invoice_sequence" model="ir.sequence">
+        <field name="name">Invoice Sequence</field>
+        <field name="code">hospital_system.invoice</field>
+        <field name="prefix">INV/%(year)s/</field>
+        <field name="padding">4</field>
+        <field name="number_increment">1</field>
+        <field name="implementation">standard</field>
+    </record>
+
+    <!-- Patient Sequence -->
+    <record id="patient_sequence" model="ir.sequence">
+        <field name="name">Patient Sequence</field>
+        <field name="code">hospital_system.patient</field>
+        <field name="prefix">PAT</field>
+        <field name="padding">4</field>
+        <field name="number_increment">1</field>
+        <field name="implementation">standard</field>
+    </record>
+
+    <!-- Service Sequence -->
+    <record id="service_sequence" model="ir.sequence">
+        <field name="name">Service Sequence</field>
+        <field name="code">hospital_system.service</field>
+        <field name="prefix">SER</field>
+        <field name="padding">4</field>
+        <field name="number_increment">1</field>
+        <field name="implementation">standard</field>
+    </record>
+
+</odoo>

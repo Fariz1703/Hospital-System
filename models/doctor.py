@@ -30,7 +30,7 @@ class Doctor(models.Model):
         )
     
     doctor_id = fields.Char(
-        string="Reference",
+        string="Doctor Reference",
         readonly=True,
         copy=False,
         default="New"

@@ -18,6 +18,7 @@ data_dir/
 
 # Virtual Environment
 
+odoo-venv
 venv/
 .env/
 .envrc

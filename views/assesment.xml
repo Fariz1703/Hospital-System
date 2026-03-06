@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- ================= TREE VIEW ================= -->
-
     <record id="view_hospital_assessment_tree" model="ir.ui.view">
         <field name="name">hospital.assessment.tree</field>
         <field name="model">hospital_system.assessment</field>
@@ -22,14 +20,12 @@
     </record>
 
 
-    <!-- ================= FORM VIEW ================= -->
-
     <record id="view_hospital_assessment_form" model="ir.ui.view">
         <field name="name">hospital.assessment.form</field>
         <field name="model">hospital_system.assessment</field>
         <field name="arch" type="xml">
 
-            <form string="Doctor Assessment">
+            <form string="Assessment">
 
                 <header>
 
@@ -63,8 +59,8 @@
                     <group>
                         <group>
                             <field name="assessment_id" readonly="1"/>
-                            <field name="appointment_id"/>
-                            <field name="assessment_date"/>
+                            <field name="appointment_id" readonly="state != 'in_progress'"/>
+                            <field name="assessment_date" readonly="state != 'in_progress'"/>
                         </group>
 
                         <group>
@@ -73,41 +69,37 @@
                         </group>
                     </group>
 
-
-                    <!-- ================= VITAL SIGNS ================= -->
-
                     <group string="Vital Signs">
 
                         <group>
-                            <field name="temperature"/>
-                            <field name="blood_pressure"/>
-                            <field name="heart_rate"/>
+                            <field name="temperature" readonly="state != 'in_progress'"/>
+                            <field name="blood_pressure" readonly="state != 'in_progress'"/>
+                            <field name="heart_rate" readonly="state != 'in_progress'"/>
                         </group>
 
                         <group>
-                            <field name="respiratory_rate"/>
-                            <field name="weight"/>
-                            <field name="height"/>
+                            <field name="respiratory_rate" readonly="state != 'in_progress'"/>
+                            <field name="weight" readonly="state != 'in_progress'"/>
+                            <field name="height" readonly="state != 'in_progress'"/>
                         </group>
 
                     </group>
 
 
-                    <!-- ================= MEDICAL NOTES ================= -->
-
                     <group string="Medical Assessment">
 
-                        <field name="chief_complaint"/>
+                        <field name="chief_complaint" readonly="state != 'in_progress'"/>
 
-                        <field name="diagnosis"/>
+                        <field name="diagnosis" readonly="state != 'in_progress'"/>
 
-                        <field name="treatment_plan"/>
+                        <field name="treatment_plan" readonly="state != 'in_progress'"/>
 
-                        <field name="notes"/>
+                        <field name="notes" readonly="state != 'in_progress'"/>
 
                     </group>
 
-                    <field name="service_line_ids">
+
+                    <field name="service_line_ids" readonly="state != 'in_progress'">
                         <tree editable="bottom">
                             <field name="service_id"/>
                             <field name="quantity"/>
@@ -115,10 +107,9 @@
                             <field name="subtotal"/>
                         </tree>
                     </field>
+
                 </sheet>
 
-
-                <!-- ================= OE CHATTER ================= -->
 
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
@@ -126,17 +117,78 @@
                     <field name="message_ids"/>
                 </div>
 
-
             </form>
 
         </field>
     </record>
 
-    <!-- ================= ACTION ================= -->
+
+    <record id="view_hospital_assessment_search" model="ir.ui.view">
+        <field name="name">hospital.assessment.search</field>
+        <field name="model">hospital_system.assessment</field>
+        <field name="arch" type="xml">
+
+            <search>
+
+                <field name="assessment_id"/>
+                <field name="appendix_number"/>
+                <field name="appointment_id"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="assessment_date"/>
+                <field name="state"/>
+
+                <filter
+                    name="draft"
+                    string="Draft"
+                    domain="[('state','=','draft')]"
+                />
+
+                <filter
+                    name="in_progress"
+                    string="In Progress"
+                    domain="[('state','=','in_progress')]"
+                />
+
+                <filter
+                    name="done"
+                    string="Done"
+                    domain="[('state','=','done')]"
+                />
+
+                <group expand="0" string="Group By">
+
+                    <filter
+                        name="group_doctor"
+                        string="Doctor"
+                        context="{'group_by':'doctor_id'}"
+                    />
+
+                    <filter
+                        name="group_date"
+                        string="Assessment Date"
+                        context="{'group_by':'assessment_date'}"
+                    />
+
+                    <filter
+                        name="group_patient"
+                        string="Patient"
+                        context="{'group_by':'patient_id'}"
+                    />
+
+                </group>
+
+            </search>
+
+        </field>
+    </record>
+
 
     <record id="action_hospital_assessment" model="ir.actions.act_window">
-        <field name="name">Doctor Assessments</field>
+        <field name="name">Assessments</field>
         <field name="res_model">hospital_system.assessment</field>
         <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_hospital_assessment_search"/>
     </record>
+
 </odoo>

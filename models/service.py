@@ -11,7 +11,7 @@ class HospitalService(models.Model):
     _order = "id desc"
 
     service_id = fields.Char(
-        string="Reference",
+        string="Service Reference",
         readonly=True,
         copy=False,
         default="New"

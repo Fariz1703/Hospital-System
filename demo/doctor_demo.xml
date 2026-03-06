@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- Doctors Demo Data -->
+        <record id="doctor_iqra" model="hospital_system.doctor">
+            <field name="doctor_name">Dr. Iqra</field>
+            <field name="gender">male</field>
+            <field name="appendix">IQ</field>
+            <field name="department_id" ref="hospital_system.department_general_Practitioners"/>
+        </record>
+
+        <record id="doctor_ahmad_rashid" model="hospital_system.doctor">
+            <field name="doctor_name">Dr. Ahmad Rashid</field>
+            <field name="gender">male</field>
+            <field name="appendix">AR</field>
+            <field name="department_id" ref="hospital_system.department_cardiology"/>
+        </record>
+
+        <record id="doctor_siti_nurhaliza" model="hospital_system.doctor">
+            <field name="doctor_name">Dr. Siti Nurhaliza</field>
+            <field name="gender">female</field>
+            <field name="appendix">SN</field>
+            <field name="department_id" ref="hospital_system.department_pediatrics"/>
+        </record>
+
+        <record id="doctor_budi_santoso" model="hospital_system.doctor">
+            <field name="doctor_name">Dr. Budi Santoso</field>
+            <field name="gender">male</field>
+            <field name="appendix">BS</field>
+            <field name="department_id" ref="hospital_system.department_surgery"/>
+        </record>
+
+        <record id="doctor_eka_putri" model="hospital_system.doctor">
+            <field name="doctor_name">Dr. Eka Putri</field>
+            <field name="gender">female</field>
+            <field name="appendix">EP</field>
+            <field name="department_id" ref="hospital_system.department_neurology"/>
+        </record>
+
+        <record id="doctor_fajar_wijaya" model="hospital_system.doctor">
+            <field name="doctor_name">Dr. Fajar Wijaya</field>
+            <field name="gender">male</field>
+            <field name="appendix">FW</field>
+            <field name="department_id" ref="hospital_system.department_orthopedics"/>
+        </record>
+
+        <record id="doctor_maya_sari" model="hospital_system.doctor">
+            <field name="doctor_name">Dr. Maya Sari</field>
+            <field name="gender">female</field>
+            <field name="appendix">MS</field>
+            <field name="department_id" ref="hospital_system.department_cardiology"/>
+        </record>
+
+    </data>
+</odoo>

@@ -10,7 +10,7 @@ class AssessmentServiceLine(models.Model):
 
     assessment_id = fields.Many2one(
         'hospital_system.assessment',
-        string="Assessment",
+        string="Assessment Reference",
         required=True,
         ondelete='cascade'
     )

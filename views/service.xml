@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- ================= TREE VIEW ================= -->
-
     <record id="view_hospital_service_tree" model="ir.ui.view">
         <field name="name">hospital.service.tree</field>
         <field name="model">hospital_system.service</field>
@@ -19,8 +17,6 @@
         </field>
     </record>
 
-
-    <!-- ================= FORM VIEW ================= -->
 
     <record id="view_hospital_service_form" model="ir.ui.view">
         <field name="name">hospital.service.form</field>
@@ -46,13 +42,12 @@
 
                     </group>
 
-                    <group string="Description">
+                    <group>
                         <field name="description"/>
                     </group>
 
                 </sheet>
 
-                <!-- OE CHATTER -->
 
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
@@ -66,8 +61,6 @@
     </record>
 
 
-    <!-- ================= SEARCH VIEW ================= -->
-
     <record id="view_hospital_service_search" model="ir.ui.view">
         <field name="name">hospital.service.search</field>
         <field name="model">hospital_system.service</field>
@@ -75,8 +68,11 @@
 
             <search>
 
+                <field name="service_id"/>
                 <field name="service_name"/>
                 <field name="service_type"/>
+                <field name="price"/>
+                <field name="active"/>
 
                 <filter name="filter_consultation"
                         string="Consultation"
@@ -106,9 +102,6 @@
 
         </field>
     </record>
-
-
-    <!-- ================= ACTION ================= -->
 
     <record id="action_hospital_service" model="ir.actions.act_window">
         <field name="name">Hospital Services</field>

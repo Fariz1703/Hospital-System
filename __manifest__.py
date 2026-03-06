@@ -2,11 +2,21 @@
 {
     'name': "hospital_system",
 
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+'summary': "Hospital management system for patient registration, appointments, assessments, prescriptions, and payments",
 
-    'description': """
-Long description of module's purpose
-    """,
+'description': """
+Hospital Management System module built for Odoo 17 to support basic healthcare service workflows.
+
+This module allows hospital staff to manage patient operations efficiently, including:
+- Patient registration and patient record management
+- Appointment scheduling between patients and doctors
+- Patient check-in and queue management
+- Doctor assessment with detailed medical information
+- Prescription creation for patients
+- Payment processing after consultation
+
+The system is developed using custom Odoo models, views, and workflows to simulate a simple hospital operational system.
+""",
 
     'author': "My Company",
     'website': "https://www.yourcompany.com",
@@ -23,6 +33,7 @@ Long description of module's purpose
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'demo/sequence_demo.xml',
         'views/service.xml',
         'views/invoice.xml',
         'views/assesment.xml',
@@ -37,7 +48,10 @@ Long description of module's purpose
     'application': True,
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
+        'demo/department_demo.xml',
+        'demo/doctor_demo.xml',
+        'demo/patient_demo.xml',
+        'demo/service_demo.xml',
     ],
 }
 

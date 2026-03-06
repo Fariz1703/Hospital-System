@@ -68,18 +68,11 @@ class HospitalInvoice(models.Model):
 
     active = fields.Boolean(default=True)
 
-    # ----------------------------
-    # COMPUTE TOTAL
-    # ----------------------------
-
     @api.depends('invoice_line_ids.subtotal')
     def _compute_total_amount(self):
         for rec in self:
             rec.total_amount = sum(rec.invoice_line_ids.mapped('subtotal'))
 
-    # ----------------------------
-    # SEQUENCE
-    # ----------------------------
 
     @api.model
     def create(self, vals):
@@ -89,9 +82,6 @@ class HospitalInvoice(models.Model):
             ) or 'New'
         return super(HospitalInvoice, self).create(vals)
 
-    # ----------------------------
-    # ACTIONS
-    # ----------------------------
 
     def action_confirm(self):
         for rec in self:

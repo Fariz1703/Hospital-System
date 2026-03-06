@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- Patients Demo Data -->
+        <record id="patient_john_doe" model="hospital_system.patient">
+            <field name="patient_name">John Doe</field>
+            <field name="identity_number">1234567890123456</field>
+            <field name="gender">male</field>
+            <field name="birth_date">1980-05-15</field>
+            <field name="phone">+62-812-3456-7890</field>
+            <field name="email">john.doe@example.com</field>
+            <field name="address">Jl. Merdeka No. 123, Jakarta, Indonesia</field>
+            <field name="blood_type">O</field>
+        </record>
+
+        <record id="patient_jane_smith" model="hospital_system.patient">
+            <field name="patient_name">Jane Smith</field>
+            <field name="identity_number">1234567890123457</field>
+            <field name="gender">female</field>
+            <field name="birth_date">1985-08-22</field>
+            <field name="phone">+62-812-9876-5432</field>
+            <field name="email">jane.smith@example.com</field>
+            <field name="address">Jl. Sudirman No. 456, Bandung, Indonesia</field>
+            <field name="blood_type">A</field>
+        </record>
+
+        <record id="patient_robert_johnson" model="hospital_system.patient">
+            <field name="patient_name">Robert Johnson</field>
+            <field name="identity_number">1234567890123458</field>
+            <field name="gender">male</field>
+            <field name="birth_date">1975-03-10</field>
+            <field name="phone">+62-822-3456-7890</field>
+            <field name="email">robert.johnson@example.com</field>
+            <field name="address">Jl. Gatot Subroto No. 789, Surabaya, Indonesia</field>
+            <field name="blood_type">B</field>
+        </record>
+
+        <record id="patient_maria_garcia" model="hospital_system.patient">
+            <field name="patient_name">Maria Garcia</field>
+            <field name="identity_number">1234567890123459</field>
+            <field name="gender">female</field>
+            <field name="birth_date">1990-11-30</field>
+            <field name="phone">+62-812-1111-2222</field>
+            <field name="email">maria.garcia@example.com</field>
+            <field name="address">Jl. Ahmad Yani No. 321, Medan, Indonesia</field>
+            <field name="blood_type">AB</field>
+        </record>
+
+        <record id="patient_david_williams" model="hospital_system.patient">
+            <field name="patient_name">David Williams</field>
+            <field name="identity_number">1234567890123460</field>
+            <field name="gender">male</field>
+            <field name="birth_date">1988-07-05</field>
+            <field name="phone">+62-822-3333-4444</field>
+            <field name="email">david.williams@example.com</field>
+            <field name="address">Jl. Diponegoro No. 654, Yogyakarta, Indonesia</field>
+            <field name="blood_type">O</field>
+        </record>
+
+        <record id="patient_lisa_anderson" model="hospital_system.patient">
+            <field name="patient_name">Lisa Anderson</field>
+            <field name="identity_number">1234567890123461</field>
+            <field name="gender">female</field>
+            <field name="birth_date">1992-01-18</field>
+            <field name="phone">+62-812-5555-6666</field>
+            <field name="email">lisa.anderson@example.com</field>
+            <field name="address">Jl. Imam Bonjol No. 987, Semarang, Indonesia</field>
+            <field name="blood_type">A</field>
+        </record>
+
+    </data>
+</odoo>

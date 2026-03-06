@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- ================= TREE VIEW ================= -->
     <record id="view_hospital_appointment_tree" model="ir.ui.view">
         <field name="name">hospital.appointment.tree</field>
         <field name="model">hospital_system.appointment</field>
@@ -18,91 +17,88 @@
         </field>
     </record>
 
-
-    <!-- ================= FORM VIEW ================= -->
     <record id="view_hospital_appointment_form" model="ir.ui.view">
         <field name="name">hospital.appointment.form</field>
         <field name="model">hospital_system.appointment</field>
         <field name="arch" type="xml">
 
-<form string="Appointment">
+            <form string="Appointment">
 
-    <header>
+                <header>
 
-        <button name="action_confirm"
-                type="object"
-                string="Confirm"
-                class="btn-primary"
-                invisible="state != 'draft'"/>
+                    <button
+                        name="action_confirm"
+                        type="object"
+                        string="Confirm"
+                        class="btn-primary"
+                        invisible="state != 'draft'"
+                    />
 
-        <button name="action_checkin"
-                type="object"
-                string="Check In"
-                class="btn-primary"
-                invisible="state != 'confirmed'"/>
+                    <button
+                        name="action_checkin"
+                        type="object"
+                        string="Check In"
+                        class="btn-primary"
+                        invisible="state != 'confirmed'"
+                    />
 
+                    <button
+                        name="action_cancel"
+                        type="object"
+                        string="Cancel"
+                        class="btn-danger"
+                        invisible="state == 'done' or state == 'cancel'"
+                    />
 
-        <button name="action_cancel"
-                type="object"
-                string="Cancel"
-                class="btn-danger"
-                invisible="state == 'done' or state == 'cancel'"/>
+                    <field
+                        name="state"
+                        widget="statusbar"
+                        statusbar_visible="draft,confirmed,checkin,in_consultation,done"
+                    />
 
-        <field name="state"
-               widget="statusbar"
-               statusbar_visible="draft,confirmed,checkin,in_consultation,done"/>
+                </header>
 
-    </header>
+                <sheet>
 
-    <sheet readonly="state != 'draft'">
+                    <h1>
+                        <field name="appointment_id" readonly="1"/>
+                    </h1>
 
-        <h1>
-            <field name="appointment_id" readonly="1"/>
-        </h1>
+                    <h2>
+                        <field name="appendix_number" readonly="1"/>
+                    </h2>
 
-        <h2>
-            <field name="appendix_number" readonly="1"/>
-        </h2>
+                    <group>
+                        <group>
+                            <field name="patient_id" readonly='1'/>
+                            <field name="appointment_date" readonly="state != 'draft'"/>
+                        </group>
 
-        <group>
-            <group>
-                <field name="patient_id"
-                readonly="state != 'draft'"/>
-                <field name="appointment_date"
-                readonly="state != 'draft'"/>
-            </group>
+                        <group>
+                            <field name="department_id" readonly="state != 'draft'"/>
+                            <field
+                                name="doctor_id"
+                                domain="[('department_id','=',department_id)]"
+                                readonly="state != 'draft'"
+                            />
+                            <field name="chief_complaint" readonly="state != 'draft'"/>
+                        </group>
 
-            <group>
-                <field name="department_id"
-                readonly="state != 'draft'"/>
-                <field name="doctor_id"
-                       domain="[('department_id','=',department_id)]"
-                       readonly="state != 'draft'"/>
-            </group>
+                    </group>
 
-            <group>
-                <field name="chief_complaint"
-                readonly="state != 'draft'"/>
-            </group>
-        </group>
+                </sheet>
 
-    </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
 
-
-        <!-- CHATTER -->
-        <div class="oe_chatter">
-            <field name="message_follower_ids"/>
-            <field name="activity_ids"/>
-            <field name="message_ids"/>
-        </div>
-
-</form>
+            </form>
 
         </field>
     </record>
 
-
-    <!-- ================= SEARCH VIEW ================= -->
     <record id="view_hospital_appointment_search" model="ir.ui.view">
         <field name="name">hospital.appointment.search</field>
         <field name="model">hospital_system.appointment</field>
@@ -112,29 +108,44 @@
 
                 <field name="appointment_id"/>
                 <field name="patient_id"/>
-                <field name="doctor_id"/>
                 <field name="appointment_date"/>
+                <field name="department_id"/>
+                <field name="doctor_id"/>
+                <field name="appendix_number"/>
+                <field name="state"/>
 
-                <filter name="today"
-                        string="Today"
-                        domain="[('appointment_date','=',context_today())]"/>
+                <filter
+                    name="today"
+                    string="Today"
+                    domain="[('appointment_date','=',context_today())]"
+                />
 
-                <filter name="checkin"
-                        string="Checked In"
-                        domain="[('state','=','checkin')]"/>
+                <filter
+                    name="checkin"
+                    string="Checked In"
+                    domain="[('state','=','checkin')]"
+                />
 
-                <filter name="done"
-                        string="Done"
-                        domain="[('state','=','done')]"/>
+                <filter
+                    name="done"
+                    string="Done"
+                    domain="[('state','=','done')]"
+                />
 
                 <group expand="0" string="Group By">
-                    <filter name="group_doctor"
-                            string="Doctor"
-                            context="{'group_by':'doctor_id'}"/>
 
-                    <filter name="group_date"
-                            string="Appointment Date"
-                            context="{'group_by':'appointment_date'}"/>
+                    <filter
+                        name="group_doctor"
+                        string="Doctor"
+                        context="{'group_by':'doctor_id'}"
+                    />
+
+                    <filter
+                        name="group_date"
+                        string="Appointment Date"
+                        context="{'group_by':'appointment_date'}"
+                    />
+
                 </group>
 
             </search>
@@ -142,8 +153,6 @@
         </field>
     </record>
 
-
-    <!-- ================= ACTION ================= -->
     <record id="action_hospital_appointment" model="ir.actions.act_window">
         <field name="name">Appointments</field>
         <field name="res_model">hospital_system.appointment</field>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <!-- Tree View -->
     <record id="view_patient_tree" model="ir.ui.view">
         <field name="name">hospital_system.patient.tree</field>
         <field name="model">hospital_system.patient</field>
@@ -18,8 +17,6 @@
         </field>
     </record>
 
-
-    <!-- Form View -->
     <record id="view_patient_form" model="ir.ui.view">
         <field name="name">hospital_system.patient.form</field>
         <field name="model">hospital_system.patient</field>
@@ -44,30 +41,73 @@
                             <field name="gender"/>
                             <field name="birth_date"/>
                             <field name="age" readonly="1"/>
+                            <field name="blood_type"/>
                         </group>
 
                         <group>
                             <field name="phone"/>
                             <field name="email"/>
-                            <field name="blood_type"/>
+                            <field name="address"/>
                         </group>
                     </group>
-
-                    <group string="Address">
-                        <field name="address"/>
-                    </group>
-
                 </sheet>
             </form>
         </field>
     </record>
 
+    <record id="view_patient_search" model="ir.ui.view">
+        <field name="name">hospital_system.patient.search</field>
+        <field name="model">hospital_system.patient</field>
+        <field name="arch" type="xml">
 
-    <!-- Action -->
+            <search>
+
+                <field name="patient_id"/>
+                <field name="patient_name"/>
+                <field name="identity_number"/>
+                <field name="gender"/>
+                <field name="birth_date"/>
+                <field name="phone"/>
+                <field name="blood_type"/>
+
+                <filter
+                    name="male"
+                    string="Male"
+                    domain="[('gender','=','male')]"
+                />
+
+                <filter
+                    name="female"
+                    string="Female"
+                    domain="[('gender','=','female')]"
+                />
+
+                <group expand="0" string="Group By">
+
+                    <filter
+                        name="group_gender"
+                        string="Gender"
+                        context="{'group_by':'gender'}"
+                    />
+
+                    <filter
+                        name="group_blood_type"
+                        string="Blood Type"
+                        context="{'group_by':'blood_type'}"
+                    />
+
+                </group>
+
+            </search>
+
+        </field>
+    </record>
+
     <record id="action_patient" model="ir.actions.act_window">
         <field name="name">Patients</field>
         <field name="res_model">hospital_system.patient</field>
         <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_patient_search"/>
     </record>
 
 </odoo>
