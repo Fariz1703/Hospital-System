@@ -88,9 +88,11 @@
                                 domain="[('department_id','=',department_id)]"
                                 readonly="state != 'draft'"
                             />
-                            <field name="chief_complaint" readonly="state != 'draft'"/>
                         </group>
-
+                    </group>
+                    <hr/>
+                    <group>
+                        <field name="chief_complaint" readonly="state != 'draft'"/>
                     </group>
 
                 </sheet>
