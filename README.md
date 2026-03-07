@@ -16,6 +16,10 @@ This project demonstrates the implementation of **custom Odoo modules using Pyth
 * **Appointment Management**
   Create and manage patient appointments with doctors.
 
+* **Queue Ticketing System**
+  Generate queue tickets for patients during check-in.
+  Patients receive a small queue ticket PDF containing their queue number, doctor, and appointment details.
+
 * **Check-in Queue System**
   Manage patient check-in and waiting queue.
 
@@ -27,6 +31,9 @@ This project demonstrates the implementation of **custom Odoo modules using Pyth
 
 * **Payment Processing**
   Handle patient payments after consultation and treatment.
+  
+* **Invoice Report**
+  Generate PDF invoices for patient services including consultation and additional treatments.
 
 ---
 
@@ -78,10 +85,11 @@ Hospital-System
 
 1. **Patient Registration**
 2. **Create Appointment**
-3. **Patient Check-in (Queue)**
+3. **Patient Check-in (Queue Ticket Generated)**
 4. **Doctor Assessment**
 5. **Prescription Creation**
-6. **Payment Processing**
+6. **Invoice Generation**
+7. **Payment Processing**
 
 ---
 
