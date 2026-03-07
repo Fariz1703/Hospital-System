@@ -30,7 +30,7 @@
 
                     <button name="action_confirm"
                             type="object"
-                            string="open"
+                            string="Confirm"
                             class="btn-primary"
                             invisible="state != 'draft'"/>
 
@@ -45,6 +45,12 @@
                             string="Cancel"
                             class="btn-danger"
                             invisible="state in ('paid','cancel')"/>
+
+                    <button name="action_print_invoice"
+                            type="object"
+                            string="Print Invoice"
+                            class="btn-info"
+                            invisible="state == 'draft'"/>
 
                     <field name="state"
                            widget="statusbar"

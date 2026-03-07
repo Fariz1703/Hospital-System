@@ -1,0 +1,14 @@
+<odoo>
+
+    <record id="action_report_queue_ticket" model="ir.actions.report">
+        <field name="name">Queue Ticket</field>
+        <field name="model">hospital_system.appointment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hospital_system.queue_ticket_template</field>
+        <field name="report_file">hospital_system.queue_ticket_template</field>
+
+        <field name="paperformat_id" ref="hospital_system.paperformat_queue_ticket"/>
+
+    </record>
+
+</odoo>

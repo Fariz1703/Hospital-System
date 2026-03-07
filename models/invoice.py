@@ -94,3 +94,6 @@ class HospitalInvoice(models.Model):
     def action_cancel(self):
         for rec in self:
             rec.state = 'cancel'
+
+    def action_print_invoice(self):
+        return self.env.ref('hospital_system.action_report_hospital_invoice').report_action(self)

@@ -42,7 +42,12 @@ The system is developed using custom Odoo models, views, and workflows to simula
         'views/department.xml',
         'views/doctor.xml',
         'views/patient.xml',
-        'views/menu.xml'
+        'views/menu.xml',
+        'report/invoce_template.xml',
+        'report/invoice_report.xml',
+        'report/queue_paper_format.xml',
+        'report/queue_ticket_template.xml',
+        'report/queue_ticket_report.xml',
     ],
     'installable': True,
     'application': True,

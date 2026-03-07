@@ -50,6 +50,13 @@
                         invisible="state == 'done' or state == 'cancel'"
                     />
 
+                    <button name="action_print_queue"
+                        type="object"
+                        string="Print Queue Ticket"
+                        class="btn-info"
+                        invisible="state != 'checkin'"
+                    />
+
                     <field
                         name="state"
                         widget="statusbar"

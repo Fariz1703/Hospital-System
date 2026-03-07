@@ -1,0 +1,52 @@
+<odoo>
+
+    <template id="queue_ticket_template">
+
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="doc">
+
+                <div class="page">
+
+                    <div style="text-align:center; font-size:14px;">
+                        <strong>Hospital Queue Ticket</strong>
+                    </div>
+
+                    <hr/>
+
+                    <div style="text-align:center; font-size:40px;">
+                        <strong>
+                            <span t-field="doc.appendix_number"/>
+                        </strong>
+                    </div>
+
+                    <div style="text-align:center;">
+                        <p>
+                            <strong>Patient</strong><br/>
+                            <span t-field="doc.patient_id"/>
+                        </p>
+
+                        <p>
+                            <strong>Doctor</strong><br/>
+                            <span t-field="doc.doctor_id"/>
+                        </p>
+
+                        <p>
+                            <strong>Date</strong><br/>
+                            <span t-field="doc.appointment_date"/>
+                        </p>
+                    </div>
+
+                    <hr/>
+
+                    <div style="text-align:center; font-size:12px;">
+                        Please wait until your number is called
+                    </div>
+
+                </div>
+
+            </t>
+        </t>
+
+    </template>
+
+</odoo>

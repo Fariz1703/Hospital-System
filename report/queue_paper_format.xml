@@ -1,0 +1,23 @@
+<odoo>
+
+    <record id="paperformat_queue_ticket" model="report.paperformat">
+        <field name="name">Queue Ticket</field>
+        <field name="default" eval="False"/>
+        <field name="format">custom</field>
+
+        <field name="page_height">90</field>
+        <field name="page_width">58</field>
+
+        <field name="orientation">Portrait</field>
+
+        <field name="margin_top">5</field>
+        <field name="margin_bottom">5</field>
+        <field name="margin_left">3</field>
+        <field name="margin_right">3</field>
+
+        <field name="header_line" eval="False"/>
+        <field name="dpi">90</field>
+
+    </record>
+
+</odoo>

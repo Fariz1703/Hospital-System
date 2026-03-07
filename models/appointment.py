@@ -136,6 +136,7 @@ class Appointment(models.Model):
 
             rec.checkin_time = now
             rec.state = 'checkin'
+            self.action_print_queue()
             self.env['hospital_system.assessment'].create({
                 'doctor_id': rec.doctor_id.id,
                 'patient_id': rec.patient_id.id,
@@ -157,3 +158,6 @@ class Appointment(models.Model):
     def action_cancel(self):
         for rec in self:
             rec.state = 'cancel'
+
+    def action_print_queue(self):
+        return self.env.ref('hospital_system.action_report_queue_ticket').report_action(self)
